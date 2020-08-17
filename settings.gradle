@@ -1,0 +1,4 @@
+include ':lib_common'
+include ':common_base'
+include ':app'
+rootProject.name = "ComponentMaster"
