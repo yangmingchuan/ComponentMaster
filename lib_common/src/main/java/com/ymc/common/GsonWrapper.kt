@@ -1,12 +1,8 @@
 package com.ymc.common
 
 import android.text.TextUtils
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import org.json.JSONArray
 import org.json.JSONObject
-import java.lang.ref.SoftReference
-import java.lang.reflect.Type
 
 /**
  * gson 包装
@@ -16,32 +12,6 @@ object GsonWrapper {
 
     private const val LINE_BORDER = "═════════════════════════" +
             "══════════════════════════════════════════"
-
-
-    private var sGsonRef: SoftReference<Gson> = SoftReference(buildGson())
-
-    private inline fun buildGson() = GsonBuilder().disableHtmlEscaping().create()
-
-    @JvmStatic
-    fun gson() : Gson {
-        if (null == sGsonRef || sGsonRef.get() == null) {
-            synchronized(this)     {
-                if (null == sGsonRef || sGsonRef.get() == null) {
-                    sGsonRef = SoftReference(buildGson())
-                }
-            }
-        }
-        return sGsonRef.get()!!
-    }
-
-    @JvmStatic
-    fun <T> fromJson(json: String, clazz: Class<T>) : T = gson().fromJson(json, clazz)
-
-    @JvmStatic
-    fun <T> fromJson(json: String?, typeOfT: Type) : T = gson().fromJson(json, typeOfT)
-
-    @JvmStatic
-    fun toJson(obj: Any) = gson().toJson(obj)
 
     /**
      * 格式化 log
@@ -134,9 +104,7 @@ object GsonWrapper {
                 return true
             }
         } catch (e: Exception) {
-            // not need to do anything.
         }
-
         return false
     }
 

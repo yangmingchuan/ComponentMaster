@@ -14,6 +14,11 @@ ext {
             android_plugin         : '4.0.1',
             kotlin_version         : '1.3.72',
 
+            support                : '28.0.0',
+            arch_comp_lifecycle    : '1.1.1',
+            multidex               : '1.0.3',
+
+
             androidx_version       : '1.3.1',
             appcompat_version      : '1.2.0',
             material_version       : '1.0.0',
@@ -52,5 +57,25 @@ ext {
             gson                   : [group: 'com.google.code.gson', name: 'gson', version: versions.gson],
     ]
 
+
+    libs = [
+            support_v4           : [group: 'com.android.support', name: 'support-v4', version: versions.support],
+            support_v7           : [group: 'com.android.support', name: 'appcompat-v7', version: versions.support],
+            support_v13          : [group: 'com.android.support', name: 'support-v13', version: versions.support],
+            design               : [group: 'com.android.support', name: 'design', version: versions.support],
+            recyclerview         : [group: 'com.android.support', name: 'recyclerview-v7', version: versions.support],
+            cardview             : [group: 'com.android.support', name: 'cardview-v7', version: versions.support],
+            annotations          : [group: 'com.android.support', name: 'support-annotations', version: versions.support],
+
+            arch_comp_extensions : [group: 'android.arch.lifecycle', name: 'extensions', version: versions.arch_comp_lifecycle],
+            arch_comp_java8      : [group: 'android.arch.lifecycle', name: 'common-java8', version: versions.arch_comp_lifecycle],
+            arch_comp_compiler   : [group: 'android.arch.lifecycle', name: 'compiler', version: versions.arch_comp_lifecycle],
+            arch_comp_viewmodel  : [group: 'android.arch.lifecycle', name: 'viewmodel', version: versions.arch_comp_lifecycle],
+            arch_comp_livedata   : [group: 'android.arch.lifecycle', name: 'livedata', version: versions.arch_comp_lifecycle],
+            arch_comp_livedata_rx: [group: 'android.arch.lifecycle', name: 'reactivestreams', version: versions.arch_comp_lifecycle],
+            arch_comp_runtime    : [group: 'android.arch.lifecycle', name: 'runtime', version: versions.arch_comp_lifecycle],
+
+            multidex             : [group: 'com.android.support', name: 'multidex', version: versions.multidex],
+    ]
 
 }
