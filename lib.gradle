@@ -1,5 +1,4 @@
-//设置到ext中，供module的build.gradle使用（例如用于设置sourceSets配置）
-
+//设置到ext中，供lib的build.gradle使用
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'

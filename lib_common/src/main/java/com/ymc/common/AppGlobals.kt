@@ -18,6 +18,7 @@ class AppGlobals private constructor(){
     }
 
 
+    @SuppressLint("PrivateApi")
     fun getApplication(): Application? {
         if (sApplication == null) {
             try {
