@@ -1,4 +1,4 @@
-package com.ymc.common
+package com.ymc.common.utils
 
 import android.util.Log
 
@@ -64,7 +64,9 @@ object LogUtils {
         message?.let {
             var msg = it
             while (msg.length > MAX_MESSAGE_LEN) {
-                messages.add(msg.substring(0, MAX_MESSAGE_LEN))
+                messages.add(msg.substring(0,
+                    MAX_MESSAGE_LEN
+                ))
                 msg = msg.substring(MAX_MESSAGE_LEN)
             }
             if (msg.isNotEmpty()) {
@@ -85,7 +87,11 @@ object LogUtils {
                 if (isError) {
                     System.err.println(GsonWrapper.formatJsonToLog(it))
                 } else {
-                    println(GsonWrapper.formatJsonToLog(it))
+                    println(
+                        GsonWrapper.formatJsonToLog(
+                            it
+                        )
+                    )
                 }
             }
         }

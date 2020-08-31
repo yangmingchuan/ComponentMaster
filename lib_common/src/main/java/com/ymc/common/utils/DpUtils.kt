@@ -1,4 +1,4 @@
-package com.ymc.common
+package com.ymc.common.utils
 
 import android.content.Context
 import android.view.View

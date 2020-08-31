@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.BuildConfig
 import androidx.multidex.MultiDex
+import com.ymc.common.utils.LogUtils
 
 /**
  * Author : ymc
@@ -20,10 +21,9 @@ class LibraryInitializer : ContentProvider(){
      * 初始化
      */
     override fun onCreate(): Boolean {
-        val context = AppGlobals.instance.getApplication() ?: return true
         LogUtils.init(if (BuildConfig.DEBUG) LogUtils.LogLevel.ERROR else LogUtils.LogLevel.NONE)
         // 突破65535的限制
-        MultiDex.install(context)
+        MultiDex.install(AppGlobals.application)
         // 应用监听
         ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifeObserver())
         return true

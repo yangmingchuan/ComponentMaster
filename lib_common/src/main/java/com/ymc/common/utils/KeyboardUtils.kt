@@ -1,4 +1,4 @@
-package com.ymc.common
+package com.ymc.common.utils
 
 import android.R
 import android.annotation.TargetApi
@@ -124,7 +124,10 @@ object KeyboardUtils {
      * @return `true`: yes<br></br>`false`: no
      */
     fun isSoftInputVisible(activity: Activity): Boolean {
-        return isSoftInputVisible(activity, 200)
+        return isSoftInputVisible(
+            activity,
+            200
+        )
     }
 
     /**
@@ -138,7 +141,9 @@ object KeyboardUtils {
         activity: Activity,
         minHeightOfSoftInput: Int
     ): Boolean {
-        return getContentViewInvisibleHeight(activity) >= minHeightOfSoftInput
+        return getContentViewInvisibleHeight(
+            activity
+        ) >= minHeightOfSoftInput
     }
 
     private fun getContentViewInvisibleHeight(activity: Activity): Int {
@@ -170,11 +175,17 @@ object KeyboardUtils {
         }
         val contentView =
             activity.findViewById<View>(R.id.content) as FrameLayout
-        sContentViewInvisibleHeightPre = getContentViewInvisibleHeight(activity)
+        sContentViewInvisibleHeightPre =
+            getContentViewInvisibleHeight(
+                activity
+            )
         onSoftInputChangedListener = listener
         onGlobalLayoutListener = OnGlobalLayoutListener {
             if (onSoftInputChangedListener != null) {
-                val height = getContentViewInvisibleHeight(activity)
+                val height =
+                    getContentViewInvisibleHeight(
+                        activity
+                    )
                 if (sContentViewInvisibleHeightPre != height) {
                     onSoftInputChangedListener!!.onSoftInputChanged(height)
                     sContentViewInvisibleHeightPre = height

@@ -1,4 +1,4 @@
-package com.ymc.common
+package com.ymc.common.utils
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import android.provider.Settings
 import android.telephony.TelephonyManager
+import com.ymc.common.AppGlobals
 import java.net.InetAddress
 import java.net.NetworkInterface
 import java.net.SocketException
@@ -22,7 +23,7 @@ import java.util.concurrent.Executors
  */
 
 object NetworkUtils {
-    private val context: Context? = AppGlobals.instance.getApplication()
+    private val context: Context? = AppGlobals.application
 
     enum class NetworkType {
         NETWORK_WIFI, NETWORK_4G, NETWORK_3G, NETWORK_2G, NETWORK_UNKNOWN, NETWORK_NO

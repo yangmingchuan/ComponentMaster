@@ -1,3 +1,10 @@
+//是否library
+def isLibrary = ext.has('isLibrary')
+ext.isLibrary = isLibrary
+//
+def isMainLibrary = ext.has('isMainLibrary')
+ext.isMainLibrary = isMainLibrary
+
 //设置到ext中，供lib的build.gradle使用
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
@@ -27,7 +34,6 @@ android {
             shrinkResources false
             //是否启用zipAlign压缩
             zipAlignEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
@@ -38,7 +44,6 @@ android {
                 shrinkResources false
                 //是否启用zipAlign压缩
                 zipAlignEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
                 proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             }
         }

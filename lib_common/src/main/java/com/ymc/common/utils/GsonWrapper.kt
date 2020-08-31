@@ -1,4 +1,4 @@
-package com.ymc.common
+package com.ymc.common.utils
 
 import android.text.TextUtils
 import org.json.JSONArray
@@ -16,14 +16,21 @@ object GsonWrapper {
     /**
      * 格式化 log
      */
-    fun formatJsonToLog(log: String) = if (!LogUtils.isEnable()|| !isJson(log)) {
+    fun formatJsonToLog(log: String) = if (!LogUtils.isEnable() || !isJson(
+            log
+        )
+    ) {
         StringBuilder("\t\n╔").append(LINE_BORDER)
                 .append("\n║").append(log)
                 .append("\n╚").append(LINE_BORDER).append("\n ").toString()
     } else StringBuilder("\n╔").append(LINE_BORDER)
             .append("\n║").append(log)
             .append("\n║").append(LINE_BORDER)
-            .append("\n║").append(formatJsonStr(log))
+            .append("\n║").append(
+            formatJsonStr(
+                log
+            )
+        )
             .append("\n╚").append(LINE_BORDER).append("\n ").toString()
 
     private fun getLevelStr(level: Int): String {
@@ -51,12 +58,20 @@ object GsonWrapper {
         for (i in 0 until len) {
             val c = jsonStr[i]
             if (level > 0 && '\n' == jsonFormatStr[jsonFormatStr.length - 1]) {
-                jsonFormatStr.append(getLevelStr(level))
+                jsonFormatStr.append(
+                    getLevelStr(
+                        level
+                    )
+                )
             }
             when (c) {
                 '{', '[' -> {
                     if (lastChar != ',') {
-                        jsonFormatStr.append(getLevelStr(level))
+                        jsonFormatStr.append(
+                            getLevelStr(
+                                level
+                            )
+                        )
                     }
                     jsonFormatStr.append(c).append("\n║")
                     level++
@@ -64,18 +79,30 @@ object GsonWrapper {
 
                 ',' -> jsonFormatStr.append(c)
                         .append("\n║")
-                        .append(getLevelStr(level))
+                        .append(
+                            getLevelStr(
+                                level
+                            )
+                        )
 
                 '}', ']' -> {
                     level--
                     jsonFormatStr.append("\n║")
-                            .append(getLevelStr(level))
+                            .append(
+                                getLevelStr(
+                                    level
+                                )
+                            )
                             .append(c)
                 }
 
                 else -> {
                     if (lastChar == '[' || lastChar == '{') {
-                        jsonFormatStr.append(getLevelStr(level))
+                        jsonFormatStr.append(
+                            getLevelStr(
+                                level
+                            )
+                        )
                     }
                     jsonFormatStr.append(c)
                 }
