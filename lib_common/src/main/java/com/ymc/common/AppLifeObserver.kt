@@ -11,7 +11,7 @@ import com.ymc.common.utils.LogUtils
  * Class  : AppLifeObserver
  */
 
-class AppLifeObserver : LifecycleObserver{
+object AppLifeObserver : LifecycleObserver{
     /**
      * ON_CREATE 在应用程序的整个生命周期中只会被调用一次
      */

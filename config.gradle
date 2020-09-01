@@ -33,7 +33,7 @@ ext {
             junit_test             : '1.1.1',
             espresso_core          : '3.2.0',
             gson                   : '2.8.6',
-            startup                : '1.0.0-alpha02',
+            startup                : '1.0.0-alpha03',
     ]
 
     build_plugins = [
