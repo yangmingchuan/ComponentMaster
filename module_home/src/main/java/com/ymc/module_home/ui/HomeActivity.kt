@@ -1,19 +1,23 @@
 package com.ymc.module_home.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ymc.common.utils.LogUtils
+import com.ymc.common_base.BaseActivity
 import com.ymc.module_home.R
 
-class HomeActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.home_activity_main)
+class HomeActivity : BaseActivity() {
+
+    override fun getLayoutId(): Int {
+        return R.layout.home_activity_main
+    }
+
+    override fun initView(savedInstanceState: Bundle?) {
+        super.initView(savedInstanceState)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
@@ -24,6 +28,6 @@ class HomeActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        LogUtils.e("进入app")
     }
+
 }
