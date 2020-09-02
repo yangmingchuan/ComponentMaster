@@ -1,0 +1,39 @@
+apply from: rootProject.file('module.gradle')
+apply plugin: 'kotlin-android'
+
+android {
+
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_home'
+        }
+    }
+
+    //资源命名规范
+    resourcePrefix "home_"
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation depend_plugins.kotlin_stdlib
+    implementation depend_plugins.core_ktx
+    implementation depend_plugins.appcompat
+    implementation depend_plugins.material
+    implementation depend_plugins.constraintlayout
+    implementation depend_plugins.navigation_fragment
+    implementation depend_plugins.navigation_ui
+    implementation depend_plugins.lifecycle_extensions
+    implementation depend_plugins.navigation_fragment_ktx
+    implementation depend_plugins.navigation_ui_ktx
+    implementation depend_plugins.gson
+    testImplementation depend_plugins.junit
+    androidTestImplementation depend_plugins.junit_test
+    androidTestImplementation depend_plugins.espresso_core
+
+}

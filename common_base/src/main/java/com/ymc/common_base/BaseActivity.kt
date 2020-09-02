@@ -12,7 +12,7 @@ import com.ymc.common.utils.LogUtils
  * Class  : BaseActivity
  */
 
-abstract class BaseActivity : AppCompatActivity() , IView {
+open abstract class BaseActivity : AppCompatActivity() , IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super<AppCompatActivity>.onCreate(savedInstanceState)

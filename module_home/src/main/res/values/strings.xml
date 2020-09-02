@@ -1,0 +1,5 @@
+<resources>
+    <string name="home_title_home">Home</string>
+    <string name="home_title_dashboard">Dashboard</string>
+    <string name="home_title_notifications">Notifications</string>
+</resources>

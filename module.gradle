@@ -192,6 +192,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+
     //防止编译的时候oom、GC
     dexOptions {
         preDexLibraries false
