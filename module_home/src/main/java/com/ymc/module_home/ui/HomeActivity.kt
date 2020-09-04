@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ymc.common_base.BaseActivity
 import com.ymc.module_home.R
 
+
 class HomeActivity : BaseActivity() {
 
     override fun getLayoutId(): Int {
