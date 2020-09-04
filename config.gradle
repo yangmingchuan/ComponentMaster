@@ -34,6 +34,8 @@ ext {
             espresso_core          : '3.2.0',
             gson                   : '2.8.6',
             startup                : '1.0.0-alpha03',
+
+            mmkv               : '1.2.2',
     ]
 
     build_plugins = [
@@ -84,10 +86,15 @@ ext {
             "arouter_api"        : "com.alibaba:arouter-api:1.5.0",
             "arouter_compiler"   : "com.alibaba:arouter-compiler:1.2.2",
 
+            // room
             room                 : [group: 'android.arch.persistence.room', name: 'runtime', version: versions.room],
             room_compiler        : [group: 'android.arch.persistence.room', name: 'compiler', version: versions.room],
             room_rxjava          : [group: 'android.arch.persistence.room', name: 'rxjava2', version: versions.room],
             room_test            : [group: 'android.arch.persistence.room', name: 'testing', version: versions.room],
+
+            //https://github.com/Tencent/MMKV
+            mmkv                   : [group: 'com.tencent', name: 'mmkv', version: versions.mmkv],
+            mmkv_static            : [group: 'com.tencent', name: 'mmkv-static', version: versions.mmkv],
     ]
 
 }

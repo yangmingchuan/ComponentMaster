@@ -5,5 +5,7 @@ dependencies {
     api project(':lib_common')
     // 路由
     api libs.arouter_api
+    // 微信 键值对储存
+    api libs.mmkv
     annotationProcessor libs.arouter_compiler
 }
