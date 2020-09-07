@@ -37,7 +37,7 @@
             android:exported="false"
             tools:node="merge">
             <meta-data
-                android:name="com.ymc.common.LibraryInitializer"
+                android:name="com.ymc.common.startup.LibraryInitializer"
                 android:value="androidx_startup" />
         </provider>
 

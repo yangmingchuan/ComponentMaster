@@ -11,8 +11,7 @@ import com.ymc.common.utils.LogUtils
  * Date   : 2020/8/31  16:09
  * Class  : BaseActivity
  */
-
-open abstract class BaseActivity : AppCompatActivity() , IView {
+abstract class BaseActivity : AppCompatActivity() , IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super<AppCompatActivity>.onCreate(savedInstanceState)

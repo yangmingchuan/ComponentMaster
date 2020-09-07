@@ -1,10 +1,10 @@
-package com.ymc.common
+package com.ymc.common.startup
 
 import android.content.Context
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.MultiDex
 import androidx.startup.Initializer
-import com.ymc.common.startup.WidgetManager
+import com.ymc.common.AppLifeObserver
 import java.util.*
 
 /**
