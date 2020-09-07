@@ -1,4 +1,4 @@
-package com.ymc.common
+package com.ymc.common.utils
 
 import android.annotation.SuppressLint
 import android.content.Context

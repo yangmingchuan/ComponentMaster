@@ -1,9 +1,8 @@
-package com.ymc.common
+package com.ymc.common.utils
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.ymc.common.utils.LogUtils
 
 /**
  * Author : ymc
@@ -42,6 +41,6 @@ object AppLifeObserver : LifecycleObserver{
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy() {
-        LogUtils.e("ON_DESTROY")
+        LogUtils.e("应用被杀死")
     }
 }
