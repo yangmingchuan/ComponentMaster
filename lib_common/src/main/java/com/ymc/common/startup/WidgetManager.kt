@@ -10,11 +10,9 @@ import java.lang.reflect.ParameterizedType
 
 /**
  * app 管理
- *
- * @author yyx
  */
-object WidgetManager {
 
+object WidgetManager {
 
     private var app: WeakReference<Application>? = null
     fun getApp(): Application {
