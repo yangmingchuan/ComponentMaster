@@ -240,8 +240,8 @@ dependencies {
     if (!isLibrary) {
         implementation project(':common_base')
         //组件中依赖阿里路由编译框架
-        annotationProcessor libs.arouter_compiler
-        annotationProcessor libs.room_compiler
+        kapt libs.arouter_compiler
+        kapt libs.room_compiler
     }
 
 }
