@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="login_tips">未注册的手机号登录成功后将自动注册</string>
+    <string name="login_phone_tips">请输入手机号</string>
+    <string name="login_code_tips">请输入验证码</string>
+    <string name="login_verification_code">获取验证码</string>
+
+</resources>

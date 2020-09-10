@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorEmpty">#00000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGray">#e9e9e9</color>
+
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/white</color>
+    <color name="colorAccent">#74b9ff</color>
+    <color name="colorBackground">#f5f6fa</color>
+    <color name="colorBackgroundItem">#f5f6fa</color>
+    <color name="colorTitle">#000000</color>
+    <color name="colorText">#57606f</color>
+    <color name="colorHint">#bdc3c7</color>
+    <color name="colorLine">#eeeeee</color>
+
+    <color name="statusBar">@color/colorPrimary</color>
+    <color name="titleBar">@color/colorPrimary</color>
+
+    <color name="colorUserHead">#00C6FF</color>
+
+</resources>
