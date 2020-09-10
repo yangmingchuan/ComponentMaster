@@ -1,3 +1,4 @@
+include ':module_login'
 include ':module_home'
 include ':lib_common'
 include ':common_base'

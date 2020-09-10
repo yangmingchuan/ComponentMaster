@@ -8,4 +8,11 @@ dependencies {
     // 路由
     api libs.arouter_api
     kapt libs.arouter_compiler
+
+    api depend_plugins.kotlin_stdlib
+    api depend_plugins.core_ktx
+    api depend_plugins.appcompat
+    api depend_plugins.material
+    api depend_plugins.constraintlayout
+    api depend_plugins.lifecycle_extensions
 }

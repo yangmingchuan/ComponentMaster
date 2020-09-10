@@ -1,33 +1,29 @@
 apply from: rootProject.file('module.gradle')
 
 android {
-
     defaultConfig {
         //仅在以application方式编译时才添加applicationId属性
         if (runAsApp) {
-            applicationId build_version.applicationId + '.module_home'
+            applicationId build_version.applicationId + '.module_login'
         }
     }
 
     //资源命名规范
-    resourcePrefix "home_"
+    resourcePrefix "login_"
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
-
 }
 
 dependencies {
-    if (runAsApp) {
-        //模块化下需要引用到的模块
-        addComponent 'module_login'
-    }
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation depend_plugins.navigation_fragment
     implementation depend_plugins.navigation_ui
     implementation depend_plugins.navigation_fragment_ktx
     implementation depend_plugins.navigation_ui_ktx
     implementation depend_plugins.gson
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
 
 }

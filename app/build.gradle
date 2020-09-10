@@ -11,4 +11,5 @@ android {
 
 dependencies {
     implementation project(':module_home')
+    implementation project(':module_login')
 }
