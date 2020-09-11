@@ -12,7 +12,6 @@ object ARouterConstant {
     //====== login
     //跳转到登陆页面
     const val LOGIN_ACTIVITY = "/login/LoginActivity"
-    const val LOGIN_FRAGMENT = "/login/LoginFragment"
 
     //跳转到注册页面
     const val REGISTER_ACTIVITY = "/login/RegisterActivity"
