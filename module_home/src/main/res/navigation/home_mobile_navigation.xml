@@ -9,17 +9,17 @@
         android:id="@+id/navigation_home"
         android:name="com.ymc.module_home.ui.home.HomeFragment"
         android:label="@string/home_title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/home_fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.ymc.module_home.ui.dashboard.DashboardFragment"
         android:label="@string/home_title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/home_fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.ymc.module_home.ui.notifications.NotificationsFragment"
         android:label="@string/home_title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/home_fragment_notifications" />
 </navigation>
