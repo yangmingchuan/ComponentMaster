@@ -17,6 +17,7 @@ ext {
             support                : '28.0.0',
             arch_comp_lifecycle    : '1.1.1',
             multidex               : '1.0.3',
+            paging                 : '2.1.2',
             room                   : '1.1.1',
 
 
@@ -77,6 +78,9 @@ ext {
             recyclerview         : [group: 'com.android.support', name: 'recyclerview-v7', version: versions.support],
             cardview             : [group: 'com.android.support', name: 'cardview-v7', version: versions.support],
             annotations          : [group: 'com.android.support', name: 'support-annotations', version: versions.support],
+
+            paging               : [group: 'androidx.paging', name: 'paging-runtime', version: versions.paging],
+            paging_rxjava        : [group: 'androidx.paging', name: 'paging-rxjava2', version: versions.paging],
 
             arch_comp_extensions : [group: 'android.arch.lifecycle', name: 'extensions', version: versions.arch_comp_lifecycle],
             arch_comp_java8      : [group: 'android.arch.lifecycle', name: 'common-java8', version: versions.arch_comp_lifecycle],
