@@ -1,6 +1,8 @@
 package com.ymc.common.adapter.base
 
 /**
+ * Item View 代理接口
+ *
  * Author : ymc
  * Date   : 2020/9/14  10:03
  * Class  : ItemDelegate
