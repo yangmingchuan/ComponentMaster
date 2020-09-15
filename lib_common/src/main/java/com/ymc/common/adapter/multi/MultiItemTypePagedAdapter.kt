@@ -4,12 +4,16 @@ import android.util.SparseArray
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.NonNull
+import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ymc.common.adapter.base.BaseViewHolder
-import com.ymc.common.adapter.base.ItemDelegate
 import com.ymc.common.adapter.base.ItemDelegateManager
+import com.ymc.common.adapter.interfaces.ItemDelegate
+import com.ymc.common.adapter.interfaces.OnItemClickListener
+import java.util.*
 
 /**
  * Created by ymc on 2020/9/14.
@@ -18,6 +22,7 @@ import com.ymc.common.adapter.base.ItemDelegateManager
 class MultiItemTypePagedAdapter<T>(@NonNull diffCallback: DiffUtil.ItemCallback<T>) :
     PagedListAdapter<T, BaseViewHolder>(diffCallback) {
 
+    private var mData: List<T> = ArrayList()
     private val mItemDelegateManager: ItemDelegateManager<T> = ItemDelegateManager()
     private var mOnItemClickListener: OnItemClickListener? = null
 
@@ -40,7 +45,8 @@ class MultiItemTypePagedAdapter<T>(@NonNull diffCallback: DiffUtil.ItemCallback<
 
         val itemViewDelegate: ItemDelegate<T>? = mItemDelegateManager.getItemViewDelegate(viewType)
         val layoutId: Int? = itemViewDelegate?.layoutId()
-        val holder: BaseViewHolder = BaseViewHolder.createViewHolder(parent.context, parent, layoutId)
+        val holder: BaseViewHolder =
+            BaseViewHolder.createViewHolder(parent.context, parent, layoutId)
         setListener(holder)
         return holder
     }
@@ -59,8 +65,64 @@ class MultiItemTypePagedAdapter<T>(@NonNull diffCallback: DiffUtil.ItemCallback<
         }
     }
 
+    private var mSpanSizeLookup: SpanSizeLookup? = null
+
+    interface SpanSizeLookup {
+        fun getSpanSize(gridLayoutManager: GridLayoutManager?, position: Int): Int
+    }
+
+    fun setSpanSizeLookup(spanSizeLookup: SpanSizeLookup?) {
+        mSpanSizeLookup = spanSizeLookup
+    }
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+        val manager = recyclerView.layoutManager
+        if (manager is GridLayoutManager) {
+            val defSpanSizeLookup = manager.spanSizeLookup
+            manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return if (mSpanSizeLookup == null) {
+                        if (isFixedViewType(position)) manager.spanCount else defSpanSizeLookup.getSpanSize(
+                            position
+                        )
+                    } else {
+                        if (isFixedViewType(position)) manager.spanCount else mSpanSizeLookup!!.getSpanSize(
+                            manager, position - mHeaders.size()
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 获取 Item Type
+     */
+    override fun getItemViewType(position: Int): Int {
+        if (position < mHeaders.size()) {
+            //返回该position对应的headerview的  viewType
+            return mHeaders.keyAt(position)
+        }
+
+        if (position >= itemCount - mFooters.size()) {
+            //footer类型的，需要计算一下它的position实际大小
+            return mFooters.keyAt(position - (itemCount - mFooters.size()))
+        }
+        val currentPos = position - mHeaders.size()
+        return if (mItemDelegateManager.itemViewDelegateCount() <=0) {
+            super.getItemViewType(currentPos)
+        }else if (getItem(currentPos) != null) {
+            val s = getItem(currentPos)
+            s!!.let {
+                mItemDelegateManager.getItemViewType(s, position)
+            }
+        } else -1
+    }
+
+
     private fun isFooterPosition(position: Int): Boolean {
-        return position >= itemCount - mHeaders.size() - mFooters.size() + mHeaders.size()
+        return position >= itemCount - mFooters.size()
     }
 
     private fun isHeaderPosition(position: Int): Boolean {
@@ -89,6 +151,30 @@ class MultiItemTypePagedAdapter<T>(@NonNull diffCallback: DiffUtil.ItemCallback<
                 mOnItemClickListener!!.onItemLongClick(v, holder, position)
             }
         }
+    }
+
+    /**
+     * 新数据
+     */
+    fun setDataItems(data: List<T>) {
+        val oldData: PagedList<T>? = currentList
+        val dataSource = MutablePageKeyedDataSource<T>()
+        dataSource.data = data
+        val pagedList: PagedList<T>? = dataSource.buildNewPagedList(oldData?.config)
+        submitList(pagedList)
+    }
+
+    /**
+     * 添加 Item 代理
+     */
+    fun addItemDelegate(itemViewDelegate: ItemDelegate<T>?): MultiItemTypePagedAdapter<T>? {
+        mItemDelegateManager.addDelegate(itemViewDelegate)
+        return this
+    }
+
+    fun addItemDelegate(viewType: Int, itemViewDelegate: ItemDelegate<T>?): MultiItemTypePagedAdapter<T>? {
+        mItemDelegateManager.addDelegate(viewType, itemViewDelegate)
+        return this
     }
 
     /**
@@ -138,33 +224,12 @@ class MultiItemTypePagedAdapter<T>(@NonNull diffCallback: DiffUtil.ItemCallback<
     }
 
 
-    /**
-     * Item 点击接口
-     */
-    interface OnItemClickListener {
-        fun onItemClick(
-            view: View?,
-            holder: BaseViewHolder?,
-            position: Int
-        )
+    fun setOnItemClickListener(mOnItemClickListener: OnItemClickListener?) {
+        this.mOnItemClickListener = mOnItemClickListener
+    }
 
-        fun onItemLongClick(
-            view: View?,
-            holder: BaseViewHolder?,
-            position: Int
-        ): Boolean
-
-        fun onItemChildClick(
-            view: View?,
-            holder: BaseViewHolder?,
-            position: Int
-        )
-
-        fun onItemChildLongClick(
-            view: View?,
-            holder: BaseViewHolder?,
-            position: Int
-        ): Boolean
+    private fun isFixedViewType(position: Int): Boolean {
+        return position < mHeaders.size() || position >= itemCount - mFooters.size()
     }
 
 }

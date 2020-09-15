@@ -1,4 +1,6 @@
-package com.ymc.common.adapter.base
+package com.ymc.common.adapter.interfaces
+
+import com.ymc.common.adapter.base.BaseViewHolder
 
 /**
  * Item View 代理接口

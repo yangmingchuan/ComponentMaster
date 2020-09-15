@@ -1,6 +1,7 @@
 package com.ymc.common.adapter.base
 
 import androidx.collection.SparseArrayCompat
+import com.ymc.common.adapter.interfaces.ItemDelegate
 
 /**
  * ItemView 管理
