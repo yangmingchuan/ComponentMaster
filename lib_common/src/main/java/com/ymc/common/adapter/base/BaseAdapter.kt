@@ -1,5 +1,6 @@
 package com.ymc.common.adapter.base
 
+import com.ymc.common.adapter.interfaces.ItemDelegate
 import com.ymc.common.adapter.multi.MultiItemTypeAdapter
 
 /**
@@ -16,16 +17,16 @@ abstract class BaseAdapter<T> : MultiItemTypeAdapter<T>() {
 
     open fun BaseAdapter(mLayoutId: Int) {
         this.mLayoutId = mLayoutId
-        addItemDelegate(object : ItemDelegate<T?>() {
+        addItemDelegate(object : ItemDelegate<T> {
             override fun layoutId(): Int {
                 return mLayoutId
             }
 
-            override fun isThisType(item: T?, position: Int): Boolean {
+            override fun isThisType(item: T, position: Int): Boolean {
                 return true
             }
 
-            override fun convert(holder: BaseViewHolder?, item: T?, position: Int) {
+            override fun convert(holder: BaseViewHolder?, item: T, position: Int) {
                 bind(holder, item, position)
             }
         })
