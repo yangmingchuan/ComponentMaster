@@ -37,6 +37,8 @@ ext {
             startup                : '1.0.0-alpha03',
 
             mmkv                   : '1.2.2',
+
+            glide                  : '4.11.0',
     ]
 
     build_plugins = [
@@ -106,6 +108,10 @@ ext {
             //https://github.com/Tencent/MMKV
             mmkv                 : [group: 'com.tencent', name: 'mmkv', version: versions.mmkv],
             mmkv_static          : [group: 'com.tencent', name: 'mmkv-static', version: versions.mmkv],
+
+            //glide     https://github.com/bumptech/glide
+            glide                : [group: 'com.github.bumptech.glide', name: 'glide', version: versions.glide],
+            glide_compiler       : [group: 'com.github.bumptech.glide', name: 'compiler', version: versions.glide],
     ]
 
 }

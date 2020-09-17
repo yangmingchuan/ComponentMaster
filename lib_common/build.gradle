@@ -8,5 +8,9 @@ dependencies {
     // 避免65K限制       https://developer.android.com/tools/building/multidex.html
     api libs.multidex
     api libs.paging
-    implementation libs.startup
+    // glide
+    api libs.glide
+    kapt libs.glide_compiler
+    // startup
+    api libs.startup
 }
