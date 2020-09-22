@@ -39,6 +39,9 @@ ext {
             mmkv                   : '1.2.2',
 
             glide                  : '4.11.0',
+
+            retrofit               : '2.9.0',
+            okhttp                 : '4.8.1',
     ]
 
     build_plugins = [
@@ -112,6 +115,15 @@ ext {
             //glide     https://github.com/bumptech/glide
             glide                : [group: 'com.github.bumptech.glide', name: 'glide', version: versions.glide],
             glide_compiler       : [group: 'com.github.bumptech.glide', name: 'compiler', version: versions.glide],
+
+            //https://github.com/square/okhttp
+            okhttp3              : [group: 'com.squareup.okhttp3', name: 'okhttp', version: versions.okhttp],
+            okhttp3_logging      : [group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: versions.okhttp],
+
+            //retrofit      https://github.com/square/retrofit
+            retrofit2            : [group: 'com.squareup.retrofit2', name: 'retrofit', version: versions.retrofit],
+            retrofit2_gson       : [group: 'com.squareup.retrofit2', name: 'converter-gson', version: versions.retrofit],
+            retrofit2_rxjava     : [group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: versions.retrofit],
     ]
 
 }
