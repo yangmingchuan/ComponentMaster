@@ -60,6 +60,9 @@ object SSLUtils {
         }
     }
 
+    /**
+     * 获取ssl工厂
+     */
     private fun getSslSocketFactoryBase(
         trustManager: X509TrustManager?,
         bksFile: InputStream?,
