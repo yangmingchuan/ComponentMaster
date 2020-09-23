@@ -6,6 +6,7 @@ import com.google.gson.stream.JsonToken
 import com.google.gson.stream.JsonWriter
 import java.io.IOException
 import java.lang.reflect.Type
+import java.util.ArrayList
 
 /**
  * Created by ymc on 2020/9/22.
@@ -25,6 +26,18 @@ object GsonUtils {
 //                .registerTypeAdapterFactory(NullStringToEmptyAdapterFactory<Any?>())
             .disableHtmlEscaping()
             .create()
+    }
+
+    /**
+     * json 转为lis<T>
+     */
+    fun <T> jsonToList(json: String?, cls: Class<T>?): List<T> {
+        val list: MutableList<T> = ArrayList()
+        val array = JsonParser().parse(json).asJsonArray
+        for (elem in array) {
+            list.add(gson.fromJson(elem, cls))
+        }
+        return list
     }
 
     /**
