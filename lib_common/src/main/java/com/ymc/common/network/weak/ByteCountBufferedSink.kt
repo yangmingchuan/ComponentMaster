@@ -22,8 +22,8 @@ class ByteCountBufferedSink(val mOriginalSink: Sink, byteCount: Long) : Buffered
         for (i in 0 until count) {
             //让每次写入的字节数精确到mByteCount 分多次写入
             val newOffset = i * mByteCount
-            val writeByteCount = Math.min(mByteCount, source.size - newOffset)
-            buffer().write(source, newOffset.toInt(), writeByteCount.toInt())
+            val writeByteCount = mByteCount.coerceAtMost(source.size - newOffset)
+            buffer.write(source, newOffset.toInt(), writeByteCount.toInt())
             emitCompleteSegments()
         }
         return this

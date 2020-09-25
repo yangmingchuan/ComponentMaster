@@ -6,6 +6,7 @@ import com.ymc.common.network.interceptor.LoggingInterceptor
 import com.ymc.common.network.utils.GsonUtils.gson
 import com.ymc.common.network.utils.SSLUtils
 import com.ymc.common.network.utils.SSLUtils.getSslSocketFactory
+import com.ymc.common.network.weak.WeakNetworkInterceptor
 import com.ymc.common.startup.WidgetManager
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -135,6 +136,8 @@ abstract class AbsHttp {
         val sslParams = getSslSocketFactory(keyStore(), keyStorePassword(), *certificates()!!)
         @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
         builder.addInterceptor(HeaderInterceptor(header()))
+                //模拟弱网
+            .addInterceptor(WeakNetworkInterceptor())
             .readTimeout(readTimeout(), TimeUnit.SECONDS)
             .writeTimeout(writeTimeout(), TimeUnit.SECONDS)
             .connectTimeout(connectTimeout(), TimeUnit.SECONDS)

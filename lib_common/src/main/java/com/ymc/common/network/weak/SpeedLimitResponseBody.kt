@@ -56,7 +56,7 @@ class SpeedLimitResponseBody constructor(speed : Long ,private val mResponseBody
                     return bytesRead
                 }
                 //一般为1024
-                cacheTotalBytesRead = cacheTotalBytesRead + bytesRead
+                cacheTotalBytesRead += bytesRead
                 /**
                  * 判断当前请求累计消耗的时间 即相当于读取1024个字节所需要的时间
                  */
