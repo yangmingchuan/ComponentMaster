@@ -92,5 +92,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-
+    //kotlin 协程
+    api depend_plugins.kotlin_stdlib, depend_plugins.kotlin_coroutines, depend_plugins.kotlin_coroutines_core
 }
