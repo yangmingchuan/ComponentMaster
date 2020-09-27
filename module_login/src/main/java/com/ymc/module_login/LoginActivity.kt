@@ -2,7 +2,7 @@ package com.ymc.module_login
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.ymc.common_base.BaseActivity
+import com.ymc.common_base.base.BaseActivity
 import com.ymc.common_base.arouter.ARouterConstant
 
 /**
