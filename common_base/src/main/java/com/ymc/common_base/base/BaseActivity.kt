@@ -1,4 +1,4 @@
-package com.ymc.common_base
+package com.ymc.common_base.base
 
 import android.os.Bundle
 import android.view.WindowManager
