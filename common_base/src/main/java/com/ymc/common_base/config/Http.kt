@@ -13,5 +13,8 @@ object Http : AbsHttp(){
         return Constants.URL_WAN_ANDROID
     }
 
+    override fun saveCache(): Boolean {
+        return false
+    }
 
 }
