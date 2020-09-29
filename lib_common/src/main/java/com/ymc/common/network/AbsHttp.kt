@@ -3,6 +3,7 @@ package com.ymc.common.network
 import com.ymc.common.network.interceptor.CacheInterceptor
 import com.ymc.common.network.interceptor.HeaderInterceptor
 import com.ymc.common.network.interceptor.LoggingInterceptor
+import com.ymc.common.network.interceptor.RetryInterceptor
 import com.ymc.common.network.utils.GsonUtils.gson
 import com.ymc.common.network.utils.SSLUtils
 import com.ymc.common.network.utils.SSLUtils.getSslSocketFactory
@@ -102,6 +103,9 @@ abstract class AbsHttp {
      */
     open fun okHttpClient(): OkHttpClient = defaultOkHttpClient()
 
+    /**
+     * retrofit 构建
+     */
     private fun defaultRetrofit(): Retrofit {
         val builder = Retrofit.Builder()
         for (it in callAdapterFactories()) {
@@ -116,6 +120,9 @@ abstract class AbsHttp {
         return builder.build()
     }
 
+    /**
+     * OkHttp 构建
+     */
     private fun defaultOkHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
         for (it in interceptors()) {
@@ -138,10 +145,12 @@ abstract class AbsHttp {
         builder.addInterceptor(HeaderInterceptor(header()))
                 //模拟弱网
             .addInterceptor(WeakNetworkInterceptor())
+            .retryOnConnectionFailure(true)
+                //设置重连次数 3次  （默认1次 + 2次）
+            .addInterceptor(RetryInterceptor(2))
             .readTimeout(readTimeout(), TimeUnit.SECONDS)
             .writeTimeout(writeTimeout(), TimeUnit.SECONDS)
             .connectTimeout(connectTimeout(), TimeUnit.SECONDS)
-            .retryOnConnectionFailure(true)
             .sslSocketFactory(sslParams.sSLSocketFactory!!, sslParams.trustManager!!)
             .hostnameVerifier(SSLUtils.UnSafeHostnameVerifier)
         return builder.build()

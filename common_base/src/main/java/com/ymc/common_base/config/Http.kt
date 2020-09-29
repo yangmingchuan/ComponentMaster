@@ -13,6 +13,9 @@ object Http : AbsHttp(){
         return Constants.URL_WAN_ANDROID
     }
 
+    /**
+     * 如果使用缓存 部分接口容易出现 504
+     */
     override fun saveCache(): Boolean {
         return false
     }
