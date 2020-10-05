@@ -1,6 +1,6 @@
 package com.ymc.module_login
 
-import com.ymc.common_base.base.BaseWanData
+import com.ymc.common_base.base.bean.BaseWanData
 import com.ymc.module_login.bean.UserBean
 import retrofit2.http.*
 

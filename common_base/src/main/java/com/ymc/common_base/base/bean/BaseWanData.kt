@@ -1,4 +1,4 @@
-package com.ymc.common_base.base
+package com.ymc.common_base.base.bean
 
 import com.ymc.common.network.interceptor.IData
 import java.io.Serializable

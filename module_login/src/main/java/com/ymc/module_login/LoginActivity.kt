@@ -1,6 +1,7 @@
 package com.ymc.module_login
 
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -27,6 +28,9 @@ class LoginActivity : BaseActivity() {
             //TODO 详细业务判断
             mViewModel.reqLogin(etPhone.text.toString(),etCode.text.toString())
         }
+        mViewModel.user.observe(this, Observer{
+            finish()
+        })
     }
 
 }
