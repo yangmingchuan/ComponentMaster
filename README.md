@@ -1,11 +1,10 @@
 # ComponentMaster
 
 > V 1.0.1
-完善lib ，引入 lib_ijk ，添加video_module
+ 完善lib ，引入 lib_ijk ，添加video_module
 
 > V 1.0.0  
-
-个人尝试 组件化 + kotlin + mvvm + livedata Demo
+ 个人尝试 组件化 + kotlin + mvvm + livedata Demo
 
 博客地址 [简书](https://www.jianshu.com/p/54bd094f6b00)
 
