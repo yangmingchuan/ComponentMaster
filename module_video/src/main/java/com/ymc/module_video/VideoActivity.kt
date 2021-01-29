@@ -106,7 +106,7 @@ class VideoActivity : IJKBaseActivityDetail<StandardIJKVideoPlayer>() {
 
     private fun resolveNormalVideoUI() {
         //增加title
-        vidoe_detail_player.getTitleTextView().setVisibility(View.GONE)
-        vidoe_detail_player.getBackButton().setVisibility(View.GONE)
+        vidoe_detail_player.titleTextView.visibility = View.GONE
+        vidoe_detail_player.backButton.visibility = View.GONE
     }
 }
