@@ -16,4 +16,7 @@ object ARouterConstant {
     //跳转到注册页面
     const val REGISTER_ACTIVITY = "/login/RegisterActivity"
 
+    //视频界面
+    const val VIDEO_ACTIVITY = "/video/VideoActivity"
+
 }

@@ -43,6 +43,10 @@ ext {
 
             retrofit               : '2.9.0',
             okhttp                 : '4.8.1',
+
+            ijk                    : '0.8.4',
+            android_x              : '1.1.0',
+            androidx_appcompat     : '1.2.0',
     ]
 
     build_plugins = [
@@ -57,7 +61,10 @@ ext {
             kotlin_coroutines_core : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: versions.kotlin_coroutines],
 
             core_ktx               : [group: 'androidx.core', name: 'core-ktx', version: versions.androidx_version],
+            // android x
             appcompat              : [group: 'androidx.appcompat', name: 'appcompat', version: versions.appcompat_version],
+            android_x              : [group: 'androidx.annotation', name: 'annotation', version: versions.android_x],
+            androidx_appcompat     : [group: 'androidx.appcompat', name: 'appcompat', version: versions.androidx_appcompat],
             material               : [group: 'com.google.android.material', name: 'material', version: versions.material_version],
             constraintlayout       : [group: 'androidx.constraintlayout', name: 'constraintlayout', version: versions.constraintlayout],
             navigation_fragment    : [group: 'androidx.navigation', name: 'navigation-fragment', version: versions.navigation_fragment],
@@ -77,6 +84,7 @@ ext {
             espresso_core          : [group: 'androidx.test.espresso', name: 'espresso-core', version: versions.espresso_core],
             //https://github.com/google/gson
             gson                   : [group: 'com.google.code.gson', name: 'gson', version: versions.gson],
+
     ]
 
 
@@ -129,6 +137,9 @@ ext {
             retrofit2            : [group: 'com.squareup.retrofit2', name: 'retrofit', version: versions.retrofit],
             retrofit2_gson       : [group: 'com.squareup.retrofit2', name: 'converter-gson', version: versions.retrofit],
             retrofit2_rxjava     : [group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: versions.retrofit],
+            //ijk
+            ijk                  : [group: 'tv.danmaku.ijk.media', name: 'ijkplayer-java', version: versions.ijk],
+
     ]
 
 }

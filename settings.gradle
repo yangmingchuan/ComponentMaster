@@ -1,3 +1,4 @@
+include ':module_video'
 include ':lib_ijk'
 include ':module_login'
 include ':module_home'

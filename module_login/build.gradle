@@ -23,7 +23,7 @@ dependencies {
     implementation depend_plugins.navigation_fragment_ktx
     implementation depend_plugins.navigation_ui_ktx
     implementation depend_plugins.gson
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation depend_plugins.androidx_appcompat
+    implementation depend_plugins.constraintlayout
 
 }

@@ -3,6 +3,7 @@ apply from: rootProject.file('module.gradle')
 
 dependencies {
     api project(':lib_common')
+    api project(':lib_ijk')
     // 微信 键值对储存
     api libs.mmkv
     // 路由

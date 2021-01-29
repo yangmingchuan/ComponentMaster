@@ -1,0 +1,24 @@
+apply from: rootProject.file('module.gradle')
+
+android {
+    defaultConfig {
+        //仅在以application方式编译时才添加applicationId属性
+        if (runAsApp) {
+            applicationId build_version.applicationId + '.module_login'
+        }
+    }
+
+    //资源命名规范
+    resourcePrefix "video_"
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation depend_plugins.androidx_appcompat
+    implementation depend_plugins.constraintlayout
+
+}

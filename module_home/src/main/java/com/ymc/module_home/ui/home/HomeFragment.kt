@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.ymc.common_base.arouter.ARouterConstant
+import com.ymc.common_base.arouter.ARouterUtils
 import com.ymc.module_home.R
 
 class HomeFragment : Fragment() {
@@ -25,6 +27,9 @@ class HomeFragment : Fragment() {
         val textView: TextView = root.findViewById(R.id.text_home)
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
+            textView.setOnClickListener {
+                ARouterUtils.startActivity(ARouterConstant.VIDEO_ACTIVITY)
+            }
         })
         return root
     }
