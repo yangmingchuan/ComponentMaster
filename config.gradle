@@ -6,8 +6,8 @@ ext {
             minSdkVersion    : 23,
             applicationId    : "com.ymc.componentmaster",
             targetSdkVersion : 29,
-            versionCode      : 1,
-            versionName      : '1.0.0'
+            versionCode      : 1000100,
+            versionName      : '1.0.1'
     ]
 
     versions = [
