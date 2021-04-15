@@ -46,7 +46,8 @@ abstract class BaseViewModel : ViewModel(){
         success: (T) -> Unit = {},
         //错误 根据错误进行不同分类
         error: (Throwable) -> Unit = {
-            reTry()
+            //暂时关闭重连
+//            reTry()
         },
         //完成
         complete: () -> Unit = {},
