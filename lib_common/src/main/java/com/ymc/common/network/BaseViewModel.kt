@@ -45,14 +45,9 @@ abstract class BaseViewModel : ViewModel(){
         //成功
         success: (T) -> Unit = {},
         //错误 根据错误进行不同分类
-        error: (Throwable) -> Unit = {
-            //暂时关闭重连
-//            reTry()
-        },
+        error: (Throwable) -> Unit = {},
         //完成
-        complete: () -> Unit = {},
-        //重试
-        reTry: () -> Unit = {}
+        complete: () -> Unit = {}
     ) {
         status.postValue(Status.LOADING)
         //正式请求接口

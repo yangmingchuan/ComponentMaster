@@ -34,7 +34,6 @@ class LoginViewModel : BaseViewModel() {
     fun reqLogin(username: String, paswd: String) {
         launchOnlyResult(
             block = { mApi.login(username = username, password = paswd) },
-            reTry = { LogUtils.e("$TAG reqLogin username$username err") },
             success = { reqUser.postValue(it) },
             error = { LogUtils.e("$TAG reqLogin username$username err") },
             complete = { LogUtils.e("$TAG reqLogin complete") }
